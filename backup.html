@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mojes Multi Services | Fabrication, Furniture, Electrical & CCTV</title>
+    <!-- Load Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Load Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        xintegrity="sha384-QWTKZyjpPEj6cwyL+n8zWbQ7/W3GzH1R2tD08z0XzE" crossorigin="anonymous">
+    <!-- Load Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJdZslpEwE5F46J5lA/wQp2B6F4D2m6K3IuF0PjL4t/f5J3wB2Ff4ZgA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Custom Styles & Gradient Background */
+        :root {
+            --primary-color: #007bff;
+            /* Blue */
+            --secondary-color: #6f42c1;
+            /* Purple */
+            --tertiary-color: #e83e8c;
+            /* Pink */
+            --text-light: #f8f9fa;
+            --text-dark: #212529;
+            --inter-font: 'Inter', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        body {
+            font-family: var(--inter-font);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--tertiary-color) 100%);
+            background-attachment: fixed;
+            /* Ensures fixed background for smooth scrolling */
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+
+        }
+
+
+        /* Styling for the overall content wrapper to create a clean card effect on the gradient */
+        .content-wrapper {
+            background-color: #ffffff;
+            min-height: 100vh;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            transition: background-color var(--transition-speed) ease-in-out;
+            font-weight: 600;
+        }
+
+        .navbar-transparent {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            color: var(--text-light) !important;
+            transition: color var(--transition-speed);
+        }
+
+        .navbar-scrolled .nav-link {
+            color: var(--text-dark) !important;
+        }
+
+        .nav-link:hover {
+            color: var(--tertiary-color) !important;
+        }
+
+        /* Hero Section Styling */
+        #hero {
+            padding-top: 10rem;
+            padding-bottom: 10rem;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-45deg, #4158D0, #C850C0, #FFCC70);
+
+
+
+
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            font-family: sans-serif;
+            color: white;
+            font-size: 2em;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Call-to-Action Buttons */
+        .btn-cta {
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 700;
+            transition: all var(--transition-speed);
+            transform: translateY(0);
+        }
+
+        .btn-primary-gradient {
+            background: linear-gradient(90deg, #6f42c1, #e83e8c);
+            border: none;
+        }
+
+        .btn-primary-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(232, 62, 140, 0.4);
+        }
+
+        /* Card and Service Hover Effects */
+        .service-card,
+        .testimonial-card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all var(--transition-speed);
+            cursor: pointer;
+            height: 100%;
+            /* Important for equal height in grid */
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--tertiary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Stats Counter Styling */
+        .stat-box {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        /* Portfolio Gallery */
+        .gallery-item {
+            width: 100%;
+            height: 90%;
+            overflow: hidden;
+            border-radius: 0.75rem;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+            filter: brightness(0.9);
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+            filter: brightness(1);
+        }
+
+        /* FAQ Accordion Styling */
+        .accordion-button:not(.collapsed) {
+            color: var(--tertiary-color);
+            background-color: #f7f3f9;
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: #e83e8c33;
+        }
+
+        /* Contact Form Styling */
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(111, 66, 193, 0.25);
+        }
+
+        /* Scroll-based Animation (using classes for Intersection Observer) */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate-on-scroll.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating Buttons Above Bottom Navbar */
+        .float-whatsapp,
+        .float-facebook {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            right: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            z-index: 99999 !important;
+            /* Always above navbar */
+        }
+
+
+        /* Facebook icon थोड़ा वर */
+        .float-facebook {
+            bottom: 80px;
+            background-color: #1877f2;
+        }
+         /* Facebook icon थोड़ा वर */
+        .float-whatsapp {
+            bottom: 25px;
+            background-color: #1877f2;
+        }
+
+        #float-whatsapp:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Facebook Icon */
+        .float-facebook {
+            background: #1877f2;
+        }
+
+        /* WhatsApp Icon */
+        .float-whatsapp {
+            background: #25D366;
+        }
+
+        /* Mobile – Set exact bottom positions */
+        @media (max-width: 768px) {
+            .float-whatsapp {
+                bottom: 80px !important;
+                /* WhatsApp icon just above navbar */
+            }
+
+            .float-facebook {
+                bottom: 140px !important;
+                /* Facebook icon above WhatsApp */
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-around !important;
+                align-items: center !important;
+                width: 100%;
+                padding: 10px 0;
+                margin: 0;
+                background: #fff;
+            }
+
+            nav ul li {
+                list-style: none;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 8px 10px;
+                color: #000 !important;
+                font-size: 14px;
+                text-decoration: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: fixed !important;
+                bottom: 0 !important;
+                top: auto !important;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                z-index: 9999;
+                border-top: 1px solid #ccc;
+            }
+        }
+
+
+        /* Hide hamburger menu in mobile */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: none !important;
+            }
+        }
+
+
+        /* Show top navbar only on Laptop */
+        @media (max-width: 992px) {
+            #mainNav {
+                display: none;
+            }
+        }
+
+        /* Mobile Bottom Navbar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #1b1b1b;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 12px 0;
+            border-radius: 20px 20px 0 0;
+            z-index: 9999;
+        }
+
+        .nav-item {
+            text-align: center;
+            color: #cccccc;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .nav-item .icon {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 3px;
+        }
+
+        /* Center Circular Logo Button */
+        .center-btn {
+            width: 50px;
+            height: 50px;
+            background: #8151da;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: -22px;
+            box-shadow: 0 0 20px rgba(140, 60, 183, 0.7);
+        }
+
+        .center-btn img {
+            width: 90px;
+            height: 90px;
+        }
+
+        /* Bottom Navbar visible only on Mobile */
+        @media (min-width: 992px) {
+            .bottom-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100">
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/91XXXXXXXXXX" class="float-whatsapp" target="_blank" aria-label="WhatsApp Contact">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <!-- Floating Facebook -->
+    <a href="https://facebook.com/YOURPAGE" class="float-facebook" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbar-transparent" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#hero">
+                <span style="color: var(--tertiary-color);">Mojes</span> Multi Services
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- BOTTOM MOBILE NAVBAR -->
+    <div class="bottom-nav d-lg-none">
+        <a href="#hero" class="nav-item">
+            <i class="fa fa-house"></i><br>
+            <span>Home</span>
+
+        </a>
+
+        <a href="#services" class="nav-item">
+            <i class="fa fa-user"></i><br>
+            <span>About</span>
+        </a>
+
+        <!-- Center Logo Button -->
+        <a href="#" class="center-btn">
+            <img src="./logo-removebg-preview.png" alt="Logo">
+        </a>
+
+        <a href="#portfolio" class="nav-item">
+            <i class="fa fa-gear"></i><br>
+            <span>Services</span>
+        </a>
+
+        <a href="#contact" class="nav-item">
+            <i class="fa fa-phone"></i><br>
+            <span>Contact</span>
+        </a>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+
+        <!-- 1. Hero Section -->
+        <header id="hero" class="text-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 animate-on-scroll">
+                        <!-- <h1 class="display-3 fw-bolder mb-4">
+                            Your Trusted Partner for <span style="color: var(--tertiary-color);">Engineering &
+                                Design</span> Solutions
+                        </h1> -->
+
+                        <h1 class="display-3 fw-bold text-white mb-3">Mojes Multi Services</h1>
+                        <h2 class="display-5 fw-semibold text-gradient">Engineering & Design Solutions</h2>
+                        <p class="lead text-white-50 mt-3">Delivering fabrication, modular furniture, ACP elevation,
+                            electrical works & CCTV installations — We build your vision.</p>
+
+                        <!-- <p class="lead mb-5 text-opacity-75">
+                            Mojes Multi Services delivers high-quality fabrication, elegant modular furniture, modern
+                            ACP elevation, reliable electrical works, and secure CCTV installations. We build your
+                            vision.
+                        </p> -->
+                        <a class="btn btn-primary-gradient btn-cta me-3 mb-2" href="#services">
+                            Explore Services
+                        </a>
+                        <a class="btn btn-outline-light btn-cta mb-2" href="#contact">
+                            Get a Free Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 2. About Company -->
+        <section id="about" class="py-5 py-xl-8">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0 animate-on-scroll">
+                        <h2 class="display-5 fw-bold mb-3">Who We Are</h2>
+                        <p class="lead mb-4" style="color: #6c757d;">
+                            Mojes Multi Services is built on a foundation of trust, quality craftsmanship, and timely
+                            delivery. We are an integrated service provider, eliminating the hassle of coordinating
+                            multiple vendors for your project needs.
+                        </p>
+                        <p>
+                            From complex **structural fabrication** to bespoke **modular kitchen designs**, and ensuring
+                            your premises are safe with certified **electrical work** and **CCTV systems**, we guarantee
+                            excellence at every step. Our commitment is to turn your blueprints into reality with
+                            precision and professionalism.
+                        </p>
+                        <ul class="list-unstyled mt-4">
+                            <li><i class="fas fa-check-circle me-2" style="color: var(--secondary-color);"></i> Over 10
+                                Years of Industry Experience</li>
+                            <li><i class="fas fa-check-circle me-2" style="color: var(--secondary-color);"></i>
+                                Certified and Skilled Workforce</li>
+                            <li><i class="fas fa-check-circle me-2" style="color: var(--secondary-color);"></i>
+                                Commitment to Safety and Quality Standards</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 animate-on-scroll">
+                        <div class="bg-light p-4 rounded-4 shadow-sm">
+                            <!-- Placeholder Image/Video -->
+                            <img src="./young-manual-worker-presenting-new-business-strategy-company-managers-his-colleagues-factory.jpg"
+                                class="img-fluid rounded-4" alt="Mojes Team Working">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Services Section -->
+        <section id="services" class="py-5 py-xl-8 bg-light">
+            <div class="container">
+                <div class="text-center mb-5 animate-on-scroll">
+                    <span class="text-uppercase fw-bold" style="color: var(--tertiary-color);">Our Expertise</span>
+                    <h2 class="display-6 fw-bold">Integrated Solutions, Single Point of Contact</h2>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                    <!-- Service 1: Fabrication -->
+                    <div class="col animate-on-scroll">
+                        <div class="card service-card p-4 text-center">
+                            <div class="d-flex justify-content-center mb-3">
+                                <i class="fas fa-tools service-icon"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Structural Fabrication</h5>
+                            <p class="text-muted small">Precision cutting, welding, and assembly for industrial and
+                                commercial structures, ensuring durability.</p>
+                        </div>
+                    </div>
+                    <!-- Service 2: Modular Furniture -->
+                    <div class="col animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="card service-card p-4 text-center">
+                            <div class="d-flex justify-content-center mb-3">
+                                <i class="fas fa-couch service-icon"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Modular Furniture</h5>
+                            <p class="text-muted small">Custom, space-saving designs for kitchens, offices, and
+                                bedrooms, blending aesthetics with utility.</p>
+                        </div>
+                    </div>
+                    <!-- Service 3: Electrical Works -->
+                    <div class="col animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="card service-card p-4 text-center">
+                            <div class="d-flex justify-content-center mb-3">
+                                <i class="fas fa-bolt service-icon"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Electrical Works</h5>
+                            <p class="text-muted small">Certified installation, wiring, and maintenance for residential
+                                and commercial power systems.</p>
+                        </div>
+                    </div>
+                    <!-- Service 4: CCTV & ACP -->
+                    <div class="col animate-on-scroll" style="transition-delay: 0.3s;">
+                        <div class="card service-card p-4 text-center">
+                            <div class="d-flex justify-content-center mb-3">
+                                <i class="fas fa-video service-icon"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Security & Elevation</h5>
+                            <p class="text-muted small">ACP cladding for modern facades and state-of-the-art CCTV
+                                surveillance for security.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Portfolio / Gallery -->
+        <section id="portfolio" class="py-5 py-xl-8">
+            <div class="container">
+                <div class="text-center mb-5 animate-on-scroll">
+                    <span class="text-uppercase fw-bold" style="color: var(--secondary-color);">Our Work</span>
+                    <h2 class="display-6 fw-bold">Showcase of Recent Projects</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4 animate-on-scroll">
+                        <div class="gallery-item shadow-sm">
+                            <img src="./two-worker-making-gates-smithy.jpg" class="img-fluid gallery-img w-100"
+                                alt="Fabrication Project">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="gallery-item shadow-sm">
+                            <img src="./small-kitchen-space-with-modern-design.jpg" class="img-fluid gallery-img w-100"
+                                alt="Modular Furniture Project">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="gallery-item shadow-sm">
+                            <img src="./download (21).jpeg" class="img-fluid gallery-img w-100"
+                                alt="ACP Elevation Project">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 animate-on-scroll" style="transition-delay: 0.3s;">
+                        <div class="gallery-item shadow-sm">
+                            <img src="./electrical.jpg" class="img-fluid gallery-img w-100" alt="Electrical Project">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 animate-on-scroll" style="transition-delay: 0.4s;">
+                        <div class="gallery-item shadow-sm">
+                            <img src="./cctv.jpg" class="img-fluid gallery-img w-100" alt="CCTV Project">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 animate-on-scroll" style="transition-delay: 0.5s;">
+                        <div class="gallery-item shadow-sm">
+                            <img src="./office.jpg" class="img-fluid gallery-img w-100" alt="Office Furniture Project">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Stats / Achievements Counters -->
+        <section id="stats" class="py-5 bg-dark" style="background-color: var(--secondary-color) !important;">
+            <div class="container">
+                <div class="row text-center text-white">
+                    <!-- Stat 1 -->
+                    <div class="col-6 col-md-3 mb-4 mb-md-0 animate-on-scroll">
+                        <div class="stat-box">
+                            <div class="stat-number" data-target="150">0</div>
+                            <p class="lead mb-0">Projects Completed</p>
+                        </div>
+                    </div>
+                    <!-- Stat 2 -->
+                    <div class="col-6 col-md-3 mb-4 mb-md-0 animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="stat-box">
+                            <div class="stat-number" data-target="25">0</div>
+                            <p class="lead mb-0">Years Experience</p>
+                        </div>
+                    </div>
+                    <!-- Stat 3 -->
+                    <div class="col-6 col-md-3 animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="stat-box">
+                            <div class="stat-number" data-target="98">0</div>
+                            <p class="lead mb-0">% Client Satisfaction</p>
+                        </div>
+                    </div>
+                    <!-- Stat 4 -->
+                    <div class="col-6 col-md-3 animate-on-scroll" style="transition-delay: 0.3s;">
+                        <div class="stat-box">
+                            <div class="stat-number" data-target="7">0</div>
+                            <p class="lead mb-0">Major Awards</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. FAQ Section (Accordion) -->
+        <section id="faq" class="py-5 py-xl-8 bg-light">
+            <div class="container">
+                <div class="text-center mb-5 animate-on-scroll">
+                    <span class="text-uppercase fw-bold" style="color: var(--primary-color);">Got Questions?</span>
+                    <h2 class="display-6 fw-bold">Frequently Asked Questions</h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 animate-on-scroll">
+                        <div class="accordion" id="faqAccordion">
+                            <!-- FAQ Item 1 -->
+                            <div class="accordion-item rounded-3 mb-3 shadow-sm">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        What areas do you serve for fabrication and furniture?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        We primarily serve the metropolitan area and surrounding regions. For
+                                        large-scale industrial fabrication and commercial furniture projects, we are
+                                        able to travel further. Please contact us with your project location for
+                                        confirmation.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item 2 -->
+                            <div class="accordion-item rounded-3 mb-3 shadow-sm">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed fw-bold" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                        aria-controls="collapseTwo">
+                                        Are your electrical installations certified and safe?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Absolutely. All our electrical works are performed by licensed professionals and
+                                        strictly adhere to the latest national electrical safety codes and regulations,
+                                        ensuring complete safety and compliance.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item 3 -->
+                            <div class="accordion-item rounded-3 mb-3 shadow-sm">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed fw-bold" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        How long does a modular furniture project typically take?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        The timeline varies based on complexity and scope. Typically, from final design
+                                        approval to installation, a modular kitchen or wardrobe project takes between 4
+                                        to 8 weeks. We provide a detailed timeline upon design finalization.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Testimonials -->
+        <section id="testimonials" class="py-5 py-xl-8">
+            <div class="container">
+                <div class="text-center mb-5 animate-on-scroll">
+                    <span class="text-uppercase fw-bold" style="color: var(--tertiary-color);">What Clients Say</span>
+                    <h2 class="display-6 fw-bold">Trusted by Our Community</h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div id="testimonialCarousel" class="carousel slide animate-on-scroll" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner p-4 p-md-5 bg-white shadow-lg rounded-4">
+                                <!-- Testimonial 1 -->
+                                <div class="carousel-item active">
+                                    <div class="testimonial-card text-center p-4">
+                                        <p class="lead fst-italic">"Mojes Multi Services handled our entire commercial
+                                            office fit-out, including fabrication of custom workstations and full
+                                            electrical setup. The quality was exceptional, and the project was delivered
+                                            ahead of schedule."</p>
+                                        <div class="mt-4">
+                                            <p class="fw-bold mb-0">Rajesh Sharma</p>
+                                            <span class="text-muted small">CEO, Tech Innovations Ltd.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Testimonial 2 -->
+                                <div class="carousel-item">
+                                    <div class="testimonial-card text-center p-4">
+                                        <p class="lead fst-italic">"The modular kitchen they designed and installed for
+                                            my home is perfect. Their team was professional, clean, and the final look
+                                            exceeds my expectations. Highly recommended for furniture!"</p>
+                                        <div class="mt-4">
+                                            <p class="fw-bold mb-0">Aisha Khan</p>
+                                            <span class="text-muted small">Homeowner</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Testimonial 3 -->
+                                <div class="carousel-item">
+                                    <div class="testimonial-card text-center p-4">
+                                        <p class="lead fst-italic">"We used Mojes for the ACP elevation of our new
+                                            building, and the facade looks incredibly modern and sleek. Their attention
+                                            to detail in the finish was truly impressive. A top-tier service provider."
+                                        </p>
+                                        <div class="mt-4">
+                                            <p class="fw-bold mb-0">Vikram Singh</p>
+                                            <span class="text-muted small">Property Developer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 8. Contact Form -->
+        <section id="contact" class="py-5 py-xl-8 bg-light">
+            <div class="container">
+                <div class="text-center mb-5 animate-on-scroll">
+                    <span class="text-uppercase fw-bold" style="color: var(--secondary-color);">Let's Connect</span>
+                    <h2 class="display-6 fw-bold">Get Your Free Consultation</h2>
+                </div>
+
+                <div class="row g-4 align-items-stretch">
+
+                    <!-- Left: Google Map -->
+                    <div class="col-lg-6 animate-on-scroll">
+                        <div class="h-100 rounded-4 overflow-hidden shadow-lg">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.797557541113!2d74.2800029!3d16.6870109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc101154a554d89%3A0xea4a920e3865f14e!2sMOJES%20MULTI%20SERVICES!5e0!3m2!1sen!2sin!4v1760885118741!5m2!1sen!2sin"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Right: Contact Form -->
+                    <div class="col-lg-6 animate-on-scroll">
+                        <form id="contactForm" class="p-4 p-md-5 bg-white rounded-4 shadow-lg h-100 d-flex flex-column">
+                            <div id="contactMessage" class="alert alert-success d-none" role="alert"></div>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="name" name="from_name" required
+                                    placeholder="John Doe">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" name="from_email" required
+                                    placeholder="name@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="service" class="form-label">Interested Service</label>
+                                <select class="form-select" id="service" name="service_type" required>
+                                    <option value="">Select a Service</option>
+                                    <option value="Fabrication">Structural Fabrication</option>
+                                    <option value="Modular_Furniture">Modular Furniture</option>
+                                    <option value="Electrical_Works">Electrical Works</option>
+                                    <option value="ACP_CCTV">ACP Elevation / CCTV</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="form-label">Project Details / Message</label>
+                                <textarea class="form-control" id="message" name="message_html" rows="4" required
+                                    placeholder="Describe your project needs..."></textarea>
+                            </div>
+                            <button type="submit" id="submitBtn" class="btn btn-primary-gradient btn-cta w-100 mt-auto">
+                                <span id="btnText">Send Message</span>
+                                <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status"
+                                    aria-hidden="true"></span>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 9. Footer -->
+        <footer class="text-black pt-5 pb-3" style="background-color: rgba(0, 0, 0, 0.3);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h5 class="fw-bold  mb-3">Mojes Multi Services</h5>
+                        <p class="small text-black">Integrated solutions for construction, interiors, and security.
+                            Quality
+                            delivered with trust.</p>
+                    </div>
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h5 class="fw-bold mb-3">Quick Links</h5>
+                        <ul class="list-unstyled small">
+                            <li><a href="#about" class="text-black text-decoration-none">About Us</a></li>
+                            <li><a href="#services" class="text-black text-decoration-none">Our Services</a></li>
+                            <li><a href="#portfolio" class="text-black text-decoration-none">Portfolio</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class=" fw-bold mb-3">Address</h5>
+                        <p>Shop No 1, Main Road, near Noor Banglow, Manermal, Uchgaon, Kolhapur, Maharashtra 416005</p>
+                        <p>Mobile No- +91 9595932478</p>
+                        <p>mojesfabrication@gmail.com</p>
+                        <h5 class="fw-bold mb-3">Connect With Us</h5>
+                        <div class="d-flex social-links">
+                            <a href="#" class="text-black me-3" aria-label="Facebook"><i
+                                    class="fab fa-facebook-f fa-lg"></i></a>
+                            <a href="#" class="text-black me-3" aria-label="Instagram"><i
+                                    class="fab fa-instagram fa-lg"></i></a>
+                            <a href="#" class="text-black me-3" aria-label="LinkedIn"><i
+                                    class="fab fa-linkedin-in fa-lg"></i></a>
+                            <a href="#" class="text-black" aria-label="Email"><i class="fas fa-envelope fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-4 mb-3" style="border-color: rgba(255, 255, 255, 0.2);">
+                <div class="text-center small">
+                    &copy; 2024 Mojes Multi Services. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- End Main Content Wrapper -->
+
+    <!-- Load Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Load EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- 1. EmailJS Initialization and Contact Form Submission ---
+
+            // NOTE: You MUST replace these placeholder values with your actual EmailJS credentials
+            // (Service ID, Template ID, and Public Key).
+            const EMAILJS_SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID'; // e.g., 'service_abc123'
+            const EMAILJS_TEMPLATE_ID = 'YOUR_EMAILJS_TEMPLATE_ID'; // e.g., 'template_xyz789'
+            const EMAILJS_PUBLIC_KEY = 'YOUR_EMAILJS_PUBLIC_KEY'; // e.g., 'user_def456'
+
+            emailjs.init(EMAILJS_PUBLIC_KEY);
+
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnSpinner = document.getElementById('btnSpinner');
+            const contactMessage = document.getElementById('contactMessage');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Show loading state
+                btnText.classList.add('d-none');
+                btnSpinner.classList.remove('d-none');
+                submitBtn.disabled = true;
+                contactMessage.classList.add('d-none');
+
+                emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
+                    .then(function () {
+                        contactMessage.textContent = 'Message sent successfully! We will get back to you shortly.';
+                        contactMessage.classList.remove('alert-danger', 'd-none');
+                        contactMessage.classList.add('alert-success');
+                        form.reset();
+                    }, function (error) {
+                        console.error('EmailJS error:', error);
+                        contactMessage.textContent = 'Failed to send message. Please try again or contact us via WhatsApp.';
+                        contactMessage.classList.remove('alert-success', 'd-none');
+                        contactMessage.classList.add('alert-danger');
+                    })
+                    .finally(() => {
+                        // Hide loading state
+                        btnText.classList.remove('d-none');
+                        btnSpinner.classList.add('d-none');
+                        submitBtn.disabled = false;
+                        // Hide message after 5 seconds
+                        setTimeout(() => contactMessage.classList.add('d-none'), 5000);
+                    });
+            });
+
+
+            // --- 2. Navbar Scroll Effect ---
+            const mainNav = document.getElementById('mainNav');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    mainNav.classList.remove('navbar-dark', 'navbar-transparent');
+                    mainNav.classList.add('navbar-light', 'navbar-scrolled');
+                } else {
+                    mainNav.classList.remove('navbar-light', 'navbar-scrolled');
+                    mainNav.classList.add('navbar-dark', 'navbar-transparent');
+                }
+            });
+
+
+            // --- 3. Stats Counter Animation ---
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const statsSection = document.getElementById('stats');
+            let counterAnimated = false;
+
+            function animateValue(obj, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    obj.textContent = Math.floor(progress * (end - start) + start);
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        obj.textContent = end; // Ensure final number is exact
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !counterAnimated) {
+                        statNumbers.forEach(number => {
+                            const target = parseInt(number.getAttribute('data-target'));
+                            animateValue(number, 0, target, 2000); // Animation duration 2s
+                        });
+                        counterAnimated = true; // Only run once
+                        observer.unobserve(statsSection);
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+
+            if (statsSection) {
+                counterObserver.observe(statsSection);
+            }
+
+
+            // --- 4. Fade-in Animations on Scroll (Intersection Observer) ---
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0.1 // Start animation when 10% of element is visible
+            });
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+
+</html>
